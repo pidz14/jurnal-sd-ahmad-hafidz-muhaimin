@@ -1,0 +1,10 @@
+/* Simulasi Style Dashboard */
+
+body {
+    background-color: lightgray;
+    color: darkblue;
+}
+
+.dashboard {
+    padding: 10px;
+}

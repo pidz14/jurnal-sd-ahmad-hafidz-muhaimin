@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web-app:
+    build: .
+    ports:
+      - "5000:5000"
+    stdin_open: true # Menjaga standar input tetap terbuka
+    tty: true        # Menjaga terminal kontainer tetap aktif (mencegah auto-exit)
+    environment:
+      - APP_USER=${APP_USER:-Guest}
+      - APP_ENV=${APP_ENV:-development}
+    volumes:
+      - shared-storage:/app/data
+    networks:
+      - mvc-network
+
+networks:
+  mvc-network:
+    driver: bridge
+
+volumes:
+  shared-storage:

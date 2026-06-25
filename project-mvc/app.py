@@ -1,4 +1,9 @@
-from controllers.user_controller import run_app
+import os
+
+# Membaca variabel lingkungan dengan nilai default (fallback)
+user_name = os.getenv('APP_USER', 'Guest')
+app_env = os.getenv('APP_ENV', 'development')
 
 if __name__ == "__main__":
-    run_app()
+    print(f"Halo {user_name}! Aplikasi ini berjalan di dalam kontainer Docker.")
+    print(f"Status Lingkungan: {app_env}")
